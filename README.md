@@ -19,7 +19,7 @@ Material Food Manager is a simple desktop application designed to manage recipes
 
 You can download the latest version of Material Food Manager from the Releases section:
 
-- [Material Food Manager v0.1.0]([https://github.com/recregt/material-food-manager/releases/download/v0.1.0/material_food_manager_v0.1.0.exe](https://github.com/recregt/material-food-manager/releases/download/v0.1.0/food_price_calculator.exe))
+- [Material Food Manager v0.1.0](https://github.com/recregt/material-food-manager/releases/download/v0.1.0/food_price_calculator.exe)
 
 ## Installation
 
@@ -30,40 +30,16 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/recregt/material-food-manager.git
    cd material-food-manager
-Install Dependencies:
+   pip install -r requirements.txt
+   python app.py
 
-Ensure you have Python installed. Then, install the required dependencies:
+Ensure you have Python installed and other dependencies.
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Run the Application:
+## License
 
-Launch the application using:
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
-bash
-Copy
-Edit
-python app.py
-For more detailed instructions and usage guidelines, please refer to the project's README.md file.
-
-markdown
-Copy
-Edit
-
-In this updated README:
-
-- The application's description and features are presented in English.
-- The **Downloads** section provides a direct link to the `.exe` file in the Releases section.
-- Installation instructions are provided for users who wish to run the project locally.
-
-**Note:** Ensure that the file name and version number in the download link match your actual `.exe` file. Adjust the `material_food_manager_v0.1.0.exe` to reflect the correct name and version of your application.
 ::contentReference[oaicite:0]{index=0}
- 
 
-1. Fork this repository.
-2. Create a new branch (`git checkout -b feature-name`).
-3. Make your changes and commit them (`git commit -am 'Add new feature'`).
-4. Push your changes to GitHub (`git push origin feature-name`).
-5. Create a pull request.
+
+
