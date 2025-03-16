@@ -1,4 +1,4 @@
-from tkinter import Tk, Frame, Label, Entry, Button, Listbox, END, Scrollbar, messagebox, StringVar, OptionMenu
+from tkinter import Tk, Frame, Label, Entry, Button, Listbox, END, Scrollbar, messagebox, StringVar, OptionMenu, Toplevel
 from material_list import MaterialList
 from food_list import FoodList
 
@@ -69,6 +69,23 @@ class MaterialFoodManagerApp:
         self.total_label = Label(self.frame, text="Total Cost: $0.00")
         self.total_label.grid(row=13, column=0, columnspan=2)
 
+        self.ingredient_label = Label(self.frame, text="Ingredient Name:")
+        self.ingredient_label.grid(row=14, column=0)
+
+        self.ingredient_entry = Entry(self.frame)
+        self.ingredient_entry.grid(row=14, column=1)
+
+        self.quantity_label = Label(self.frame, text="Quantity:")
+        self.quantity_label.grid(row=15, column=0)
+
+        self.quantity_entry = Entry(self.frame)
+        self.quantity_entry.grid(row=15, column=1)
+
+        self.add_ingredient_button = Button(self.frame, text="Add Ingredient", command=self.add_ingredient)
+        self.add_ingredient_button.grid(row=16, column=0, columnspan=2)
+
+        self.ingredients = {}
+
     def add_material(self):
         name = self.material_entry.get()
         price = self.price_entry.get()
@@ -88,15 +105,17 @@ class MaterialFoodManagerApp:
     def edit_material(self):
         selected_index = self.material_listbox.curselection()
         if selected_index:
-            name = self.material_entry.get()
-            price = self.price_entry.get()
-            unit = self.unit_var.get()
-            if name and price:
+            selected_material = self.material_listbox.get(selected_index)
+            old_name = selected_material.split(":")[0]
+            new_name = self.material_entry.get()
+            new_price = self.price_entry.get()
+            new_unit = self.unit_var.get()
+            if new_name and new_price:
                 try:
-                    price = float(price)
-                    self.material_list.edit_material(name, price, unit)
+                    new_price = float(new_price)
+                    self.material_list.edit_material(old_name, new_name, new_price, new_unit)
                     self.material_listbox.delete(selected_index)
-                    self.material_listbox.insert(selected_index, f"{name}: ${price:.2f} per {unit}")
+                    self.material_listbox.insert(selected_index, f"{new_name}: ${new_price:.2f} per {new_unit}")
                     self.material_entry.delete(0, END)
                     self.price_entry.delete(0, END)
                 except ValueError:
@@ -119,21 +138,26 @@ class MaterialFoodManagerApp:
     def add_food(self):
         name = self.food_entry.get()
         if name:
-            self.food_list.add_food_item(name, {})  # Initially, no ingredients
+            self.food_list.add_food_item(name, self.ingredients)  # Add ingredients to the food item
             self.food_listbox.insert(END, name)
             self.food_entry.delete(0, END)
+            self.ingredients = {}  # Reset ingredients after adding food item
         else:
             messagebox.showerror("Input Error", "Please enter a food name.")
 
     def edit_food(self):
         selected_index = self.food_listbox.curselection()
         if selected_index:
-            name = self.food_entry.get()
-            if name:
-                self.food_list.edit_food_item(name, {})  # Update ingredients as needed
+            selected_food = self.food_listbox.get(selected_index)
+            old_name = selected_food
+            new_name = self.food_entry.get()
+            if new_name:
+                new_ingredients = self.ingredients  # Use the updated ingredients
+                self.food_list.edit_food_item(old_name, new_name, new_ingredients)
                 self.food_listbox.delete(selected_index)
-                self.food_listbox.insert(selected_index, name)
+                self.food_listbox.insert(selected_index, new_name)
                 self.food_entry.delete(0, END)
+                self.ingredients = {}  # Reset ingredients after editing food item
             else:
                 messagebox.showerror("Input Error", "Please enter a food name.")
         else:
@@ -147,6 +171,20 @@ class MaterialFoodManagerApp:
             self.food_listbox.delete(selected_index)
         else:
             messagebox.showerror("Selection Error", "Please select a food item to delete.")
+
+    def add_ingredient(self):
+        ingredient_name = self.ingredient_entry.get()
+        quantity = self.quantity_entry.get()
+        if ingredient_name and quantity:
+            try:
+                quantity = float(quantity)
+                self.ingredients[ingredient_name] = quantity
+                self.ingredient_entry.delete(0, END)
+                self.quantity_entry.delete(0, END)
+            except ValueError:
+                messagebox.showerror("Input Error", "Please enter a valid quantity.")
+        else:
+            messagebox.showerror("Input Error", "Please fill in all fields.")
 
     def calculate_total(self):
         try:
