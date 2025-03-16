@@ -19,7 +19,7 @@ Material Food Manager is a simple desktop application designed to manage recipes
 
 You can download the latest version of Material Food Manager from the Releases section:
 
-- [Material Food Manager v0.1.0](https://github.com/recregt/material-food-manager/releases/download/v0.1.0/material_food_manager_v0.1.0.exe)
+- [Material Food Manager v0.1.0]([https://github.com/recregt/material-food-manager/releases/download/v0.1.0/material_food_manager_v0.1.0.exe](https://github.com/recregt/material-food-manager/releases/download/v0.1.0/food_price_calculator.exe))
 
 ## Installation
 
