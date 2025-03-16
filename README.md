@@ -39,7 +39,5 @@ Ensure you have Python installed and other dependencies.
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
-::contentReference[oaicite:0]{index=0}
-
 
 
