@@ -4,46 +4,63 @@ Material Food Manager is a simple desktop application designed to manage recipes
 
 ## Features
 
-- **Material List**: Add, edit, and delete materials used in recipes, along with their prices.
-- **Food List**: Store information about dishes and the materials they contain.
-- **Price Calculation**: Calculate the price of a dish based on the materials used in it.
-- **Easy Updates**: When material prices change, food prices are automatically updated.
+- **Material List:** Add, edit, and delete materials used in recipes, along with their prices.
+- **Food List:** Store information about dishes and the materials they contain.
+- **Price Calculation:** Calculate the price of a dish based on the materials used in it.
+- **Easy Updates:** When material prices change, food prices are automatically updated.
 
 ## Technologies
 
-- **Python**: The primary programming language for the application.
-- **Tkinter**: A library used for creating the graphical user interface (GUI).
-- **Git**: Version control system used for managing the project.
+- **Python:** The primary programming language for the application.
+- **Tkinter:** A library used for creating the graphical user interface (GUI).
+- **Git:** Version control system used for managing the project.
+
+## Downloads
+
+You can download the latest version of Material Food Manager from the Releases section:
+
+- [Material Food Manager v0.1.0](https://github.com/recregt/material-food-manager/releases/download/v0.1.0/material_food_manager_v0.1.0.exe)
 
 ## Installation
 
 To run this project locally, follow these steps:
 
-1. Install the latest version of **Python**: [Download Python](https://www.python.org/downloads/)
-2. Clone the repository:
-    ```bash
-    git clone https://github.com/username/material-food-manager.git
-    ```
-3. Navigate to the project folder:
-    ```bash
-    cd material-food-manager
-    ```
-4. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-5. Run the application:
-    ```bash
-    python app.py
-    ```
+1. **Clone the Repository:**
 
-## Usage
+   ```bash
+   git clone https://github.com/recregt/material-food-manager.git
+   cd material-food-manager
+Install Dependencies:
 
-Once the application is open, you can add materials and foods by clicking on the **"Add Material"** and **"Add Food"** buttons. When you update material prices, the food prices will be automatically recalculated.
+Ensure you have Python installed. Then, install the required dependencies:
 
-## Contributing
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Run the Application:
 
-If you want to contribute to this project, please follow these steps:
+Launch the application using:
+
+bash
+Copy
+Edit
+python app.py
+For more detailed instructions and usage guidelines, please refer to the project's README.md file.
+
+markdown
+Copy
+Edit
+
+In this updated README:
+
+- The application's description and features are presented in English.
+- The **Downloads** section provides a direct link to the `.exe` file in the Releases section.
+- Installation instructions are provided for users who wish to run the project locally.
+
+**Note:** Ensure that the file name and version number in the download link match your actual `.exe` file. Adjust the `material_food_manager_v0.1.0.exe` to reflect the correct name and version of your application.
+::contentReference[oaicite:0]{index=0}
+ 
 
 1. Fork this repository.
 2. Create a new branch (`git checkout -b feature-name`).
